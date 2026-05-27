@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <title>CHAOTRYX – Twitch Streamer</title>
+  <title>CHAOTRYX – Neon Rage Gaming</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Fonts -->
@@ -171,14 +171,6 @@
       position: relative;
       overflow: hidden;
       margin-bottom: 20px;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: -40%;
-      background: radial-gradient(circle at top left, rgba(255, 26, 60, 0.18), transparent 60%);
-      pointer-events: none;
     }
 
     .card-title {
@@ -593,7 +585,7 @@
 
     <footer>
       <div>© <span id="year"></span> CHAOTRYX</div>
-      <div>HRX CreatorNET Head of Ambassadors</div>
+      <div>Neon Rage Gaming</div>
     </footer>
   </div>
 
@@ -608,46 +600,3 @@
         number: { value: 60 },
         color: { value: "#ff1a3c" },
         size: { value: 2 },
-        move: { speed: 1 },
-        line_linked: { enable: false }
-      },
-      interactivity: {
-        events: {
-          onhover: { enable: true, mode: "repulse" }
-        }
-      }
-    });
-
-    // Follower Counter (ohne Token, über decapi)
-    fetch("https://decapi.me/twitch/followers/chaotryx")
-      .then(r => r.text())
-      .then(count => {
-        document.getElementById("follower-count").textContent = count;
-      })
-      .catch(() => {
-        document.getElementById("follower-count").textContent = "–";
-      });
-
-    // Live Status (ohne Token, über decapi)
-    fetch("https://decapi.me/twitch/uptime/chaotryx")
-      .then(r => r.text())
-      .then(text => {
-        const liveText = document.getElementById("live-status-text");
-        const pill = document.getElementById("live-pill");
-        const pillText = document.getElementById("live-pill-text");
-
-        if (text.toLowerCase().includes("offline")) {
-          liveText.textContent = "Offline";
-          pillText.textContent = "Status: Offline";
-        } else {
-          liveText.textContent = "Live";
-          pillText.textContent = "Status: Live";
-          pill.classList.add("live");
-        }
-      })
-      .catch(() => {
-        document.getElementById("live-status-text").textContent = "Unbekannt";
-      });
-  </script>
-</body>
-</html>
