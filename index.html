@@ -271,7 +271,87 @@
       font-size: 0.8rem;
       display: flex;
       justify-content: space-between;
-    }
+
+      /* ===========================
+   RESPONSIVE – CHAOTRYX EDITION
+   =========================== */
+
+/* Handy: alles unter 600px */
+@media (max-width: 600px) {
+
+  header {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .brand {
+    flex-direction: column;
+  }
+
+  .brand-logo {
+    width: 70px;
+    height: 70px;
+  }
+
+  .brand-name {
+    font-size: 1.3rem;
+  }
+
+  .top-section {
+    grid-template-columns: 1fr !important;
+  }
+
+  #twitch-embed {
+    aspect-ratio: 16/9;
+    height: auto;
+  }
+
+  #twitch-chat-embed {
+    min-height: 350px;
+  }
+
+  .about-layout {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .social-btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  section {
+    grid-template-columns: 1fr !important;
+  }
+
+  .card {
+    padding: 14px;
+  }
+}
+
+/* Tablet: 600–900px */
+@media (max-width: 900px) {
+
+  .top-section {
+    grid-template-columns: 1fr;
+  }
+
+  #twitch-chat-embed {
+    min-height: 400px;
+  }
+
+  section {
+    grid-template-columns: 1fr;
+  }
+}
   </style>
 </head>
 
