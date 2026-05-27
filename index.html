@@ -8,13 +8,7 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@300;400;700&display=swap" rel="stylesheet">
 
-  <!-- Twitch Script -->
-  <script src="https://embed.twitch.tv/embed/v1.js"></script>
-
   <style>
-    /* ===========================
-       CHAOTRYX BRANDING VARIABLEN
-       =========================== */
     :root {
       --red: #ff1a3c;
       --red-soft: rgba(255, 26, 60, 0.4);
@@ -26,9 +20,10 @@
       --shadow-red: 0 0 22px rgba(255, 26, 60, 0.9);
     }
 
-    /* ===========================
-       GLOBAL
-       =========================== */
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       background: radial-gradient(circle at top, #1a0f14 0%, #050507 60%);
       background-attachment: fixed;
@@ -38,17 +33,18 @@
       padding: 0;
     }
 
+    a { color: inherit; text-decoration: none; }
+
     .page {
       max-width: 1250px;
       margin: 0 auto;
       padding: 20px;
+      position: relative;
+      z-index: 1;
     }
 
-    a { color: inherit; text-decoration: none; }
+    /* HEADER */
 
-    /* ===========================
-       HEADER / LOGO
-       =========================== */
     header {
       display: flex;
       justify-content: space-between;
@@ -95,9 +91,6 @@
       text-transform: uppercase;
     }
 
-    /* ===========================
-       LIVE STATUS
-       =========================== */
     .status-pill {
       display: flex;
       align-items: center;
@@ -131,9 +124,44 @@
       100% { transform: scale(1); }
     }
 
-    /* ===========================
-       PANELS
-       =========================== */
+    /* CROWN LINE */
+
+    .crown-line {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .crown-line::before,
+    .crown-line::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--red), transparent);
+      animation: crown-glow 3s ease-in-out infinite;
+    }
+
+    .crown-icon {
+      font-size: 1.2rem;
+      color: var(--red);
+      text-shadow: var(--shadow-red);
+      animation: crown-bounce 1.8s infinite;
+    }
+
+    @keyframes crown-glow {
+      0%,100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+
+    @keyframes crown-bounce {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-3px); }
+    }
+
+    /* CARDS */
+
     .card {
       background: linear-gradient(135deg, #0b0b10, #050507);
       border: 1px solid var(--border);
@@ -142,6 +170,7 @@
       box-shadow: 0 0 0 1px rgba(255,255,255,0.03), 0 0 40px rgba(0,0,0,0.8);
       position: relative;
       overflow: hidden;
+      margin-bottom: 20px;
     }
 
     .card::before {
@@ -161,37 +190,68 @@
       margin-bottom: 12px;
     }
 
-    /* ===========================
-       TWITCH PLAYER + CHAT
-       =========================== */
-    .top-section {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
+    /* TWITCH PROFILE */
+
+    .twitch-profile {
+      display: flex;
       gap: 20px;
+      align-items: center;
     }
 
-    #twitch-embed {
-      width: 100%;
-      height: 100%;
-      aspect-ratio: 16/9;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid var(--red-soft);
+    .twitch-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 16px;
+      border: 2px solid var(--red);
       box-shadow: var(--shadow-red);
+      object-fit: cover;
     }
 
-    #twitch-chat-embed {
-      width: 100%;
-      height: 100%;
-      min-height: 400px;
+    .twitch-info {
+      flex: 1;
+    }
+
+    .twitch-name {
+      font-family: 'Orbitron';
+      font-size: 1.6rem;
+      color: var(--red);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin: 0 0 4px;
+    }
+
+    .twitch-bio {
+      color: var(--gray);
+      margin: 0 0 10px;
+    }
+
+    .twitch-stats {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .stat-box {
+      background: #0a0a0f;
+      padding: 10px 14px;
       border-radius: 12px;
-      border: 1px solid var(--red-soft);
-      overflow: hidden;
+      border: 1px solid var(--border);
+      text-align: center;
+      min-width: 110px;
     }
 
-    /* ===========================
-       ABOUT ME
-       =========================== */
+    .stat-label {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 4px;
+    }
+
+    /* ABOUT */
+
     .about-layout {
       display: flex;
       gap: 20px;
@@ -219,17 +279,18 @@
       text-transform: uppercase;
       letter-spacing: 0.15em;
       color: var(--red);
+      margin: 0 0 6px;
     }
 
     .about-text p {
       color: var(--gray);
       font-size: 1rem;
       line-height: 1.6;
+      margin: 0;
     }
 
-    /* ===========================
-       SOCIAL BUTTONS
-       =========================== */
+    /* SOCIAL BUTTONS */
+
     .social-btn {
       display: inline-flex;
       align-items: center;
@@ -243,6 +304,7 @@
       letter-spacing: 0.12em;
       transition: 0.25s;
       cursor: pointer;
+      margin-bottom: 10px;
     }
 
     .social-btn:hover {
@@ -260,9 +322,102 @@
       box-shadow: var(--shadow-red);
     }
 
-    /* ===========================
-       FOOTER
-       =========================== */
+    /* GAME PANEL */
+
+    .game-panel {
+      background: #0b0b10;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+
+    .game-title {
+      font-family: 'Orbitron';
+      color: var(--red);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      letter-spacing: 0.15em;
+      font-size: 0.9rem;
+    }
+
+    .game-panel ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      color: var(--gray);
+    }
+
+    .game-panel li::before {
+      content: "▶ ";
+      color: var(--red);
+    }
+
+    /* LIVE TICKER */
+
+    .live-ticker {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      border-top: 1px solid var(--red-soft);
+      border-bottom: 1px solid var(--red-soft);
+      padding: 8px 0;
+      margin-top: 20px;
+    }
+
+    .live-ticker span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: ticker 12s linear infinite;
+      color: var(--red);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 0.8rem;
+    }
+
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* GLITCH */
+
+    .glitch {
+      position: relative;
+      color: var(--red);
+      text-shadow: 0 0 8px var(--red);
+      animation: glitch 1.8s infinite;
+    }
+
+    @keyframes glitch {
+      0% { transform: translate(0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(2px, -2px); }
+      60% { transform: translate(-1px, 1px); }
+      80% { transform: translate(1px, -1px); }
+      100% { transform: translate(0); }
+    }
+
+    /* PARTICLES CONTAINER */
+
+    #particles {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background: transparent;
+      pointer-events: none;
+    }
+
+    /* LAYOUT GRID */
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    /* FOOTER */
+
     footer {
       margin-top: 40px;
       padding-top: 20px;
@@ -271,191 +426,228 @@
       font-size: 0.8rem;
       display: flex;
       justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
 
-      /* ===========================
-   RESPONSIVE – CHAOTRYX EDITION
-   =========================== */
+    /* RESPONSIVE */
 
-/* Handy: alles unter 600px */
-@media (max-width: 600px) {
+    @media (max-width: 900px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
 
-  header {
-    flex-direction: column;
-    text-align: center;
-    gap: 12px;
-  }
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+      }
 
-  .brand {
-    flex-direction: column;
-  }
+      .brand {
+        flex-direction: column;
+      }
 
-  .brand-logo {
-    width: 70px;
-    height: 70px;
-  }
+      .brand-logo {
+        width: 70px;
+        height: 70px;
+      }
 
-  .brand-name {
-    font-size: 1.3rem;
-  }
+      .brand-name {
+        font-size: 1.3rem;
+      }
 
-  .top-section {
-    grid-template-columns: 1fr !important;
-  }
+      .twitch-profile {
+        flex-direction: column;
+        text-align: center;
+      }
 
-  #twitch-embed {
-    aspect-ratio: 16/9;
-    height: auto;
-  }
+      .twitch-stats {
+        justify-content: center;
+      }
 
-  #twitch-chat-embed {
-    min-height: 350px;
-  }
+      .about-layout {
+        flex-direction: column;
+        text-align: center;
+      }
 
-  .about-layout {
-    flex-direction: column;
-    text-align: center;
-  }
+      .avatar {
+        width: 100px;
+        height: 100px;
+      }
 
-  .avatar {
-    width: 100px;
-    height: 100px;
-  }
+      .social-btn {
+        width: 100%;
+        justify-content: center;
+        font-size: 1rem;
+        padding: 12px;
+      }
 
-  .social-btn {
-    width: 100%;
-    justify-content: center;
-    font-size: 1rem;
-    padding: 12px;
-  }
-
-  section {
-    grid-template-columns: 1fr !important;
-  }
-
-  .card {
-    padding: 14px;
-  }
-}
-
-/* Tablet: 600–900px */
-@media (max-width: 900px) {
-
-  .top-section {
-    grid-template-columns: 1fr;
-  }
-
-  #twitch-chat-embed {
-    min-height: 400px;
-  }
-
-  section {
-    grid-template-columns: 1fr;
-  }
-}
+      .card {
+        padding: 14px;
+      }
+    }
   </style>
 </head>
-
 <body>
-  <div class="page">
+  <!-- Partikel-Hintergrund -->
+  <div id="particles"></div>
 
-    <!-- HEADER -->
+  <div class="page">
     <header>
       <div class="brand">
         <div class="brand-logo">
           <img src="images/logo.png" alt="CHAOTRYX Logo">
         </div>
         <div>
-          <div class="brand-name">CHAOTRYX</div>
+          <div class="brand-name glitch">CHAOTRYX</div>
           <div class="brand-tagline">Zu laut. Zu ehrlich.</div>
         </div>
       </div>
 
-      <div class="status-pill" id="live-status">
+      <div class="status-pill" id="live-pill">
         <div class="status-dot"></div>
-        <span>Status: Offline</span>
+        <span id="live-pill-text">Status: Offline</span>
       </div>
     </header>
 
-    <!-- TOP SECTION -->
-    <section class="top-section">
-      <div class="card">
-        <div class="card-title">Live Stream</div>
-        <div id="twitch-embed"></div>
-      </div>
+    <div class="crown-line">
+      <span class="crown-icon">👑</span>
+    </div>
 
-      <div class="card">
-        <div class="card-title">Chat</div>
-        <iframe
-          id="twitch-chat-embed"
-          src="https://www.twitch.tv/embed/chaotryx/chat?parent=www.chaotryx.at"
-          frameborder="0">
-        </iframe>
+    <!-- Twitch Profil -->
+    <section class="card">
+      <div class="card-title">Twitch Profil</div>
+      <div class="twitch-profile">
+        <img class="twitch-avatar" src="images/profile.jpg" alt="Twitch Avatar">
+        <div class="twitch-info">
+          <h2 class="twitch-name">CHAOTRYX</h2>
+          <p class="twitch-bio">Gaming ohne Filter. Zu laut. Zu ehrlich. Willkommen im Chaos.</p>
+
+          <div class="twitch-stats">
+            <div class="stat-box">
+              <span class="stat-label">Follower</span>
+              <span id="follower-count">–</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-label">Live Status</span>
+              <span id="live-status-text">Offline</span>
+            </div>
+          </div>
+
+          <a class="social-btn" href="https://www.twitch.tv/chaotryx" target="_blank">
+            <span class="social-dot"></span> Twitch öffnen
+          </a>
+        </div>
       </div>
     </section>
 
-    <!-- ABOUT + SOCIALS -->
-    <section style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:20px;">
-      <div class="card">
-        <div class="card-title">Über mich</div>
-        <div class="about-layout">
-          <div class="avatar">
-            <img src="images/profile.jpg" alt="Profilbild">
+    <!-- About + Socials + Games -->
+    <section class="grid-2">
+      <div>
+        <div class="card">
+          <div class="card-title">Über mich</div>
+          <div class="about-layout">
+            <div class="avatar">
+              <img src="images/profile.jpg" alt="Profilbild">
+            </div>
+            <div class="about-text">
+              <h2>Chris aka Chaotryx</h2>
+              <p>
+                25 Jahre alt. Twitch Streamer seit 1 Jahr.<br>
+                Gaming ohne Filter. Zu laut. Zu ehrlich.<br>
+                Wenn du Chaos liebst, bist du hier richtig.
+              </p>
+            </div>
           </div>
-          <div class="about-text">
-            <h2>Chris aka Chaotryx</h2>
-            <p>
-              25 Jahre alt. Twitch Streamer seit 1 Jahr.  
-              Gaming ohne Filter. Zu laut. Zu ehrlich.  
-              Willkommen im Chaos.
-            </p>
-          </div>
+        </div>
+
+        <div class="game-panel">
+          <div class="game-title">Aktuelle Games</div>
+          <ul>
+            <li>Call of Duty</li>
+            <li>Valorant</li>
+            <li>Escape from Tarkov</li>
+          </ul>
         </div>
       </div>
 
-      <div class="card">
-        <div class="card-title">Socials</div>
-        <a class="social-btn" href="https://www.twitch.tv/chaotryx" target="_blank">
-          <span class="social-dot"></span> Twitch
-        </a><br><br>
-        <a class="social-btn" href="https://www.tiktok.com/@chaotryx" target="_blank">
-          <span class="social-dot"></span> TikTok
-        </a>
+      <div>
+        <div class="card">
+          <div class="card-title">Socials</div>
+          <a class="social-btn" href="https://www.twitch.tv/chaotryx" target="_blank">
+            <span class="social-dot"></span> Twitch
+          </a><br>
+          <a class="social-btn" href="https://www.tiktok.com/@chaotryx" target="_blank">
+            <span class="social-dot"></span> TikTok
+          </a>
+        </div>
       </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- Live Ticker -->
+    <div class="live-ticker">
+      <span>CHAOTRYX – GAMING OHNE FILTER – ZU LAUT. ZU EHRLICH. – FOLLOW AUF TWITCH – CHAOTRYX – GAMING OHNE FILTER –</span>
+    </div>
+
     <footer>
       <div>© <span id="year"></span> CHAOTRYX</div>
       <div>HRX CreatorNET Head of Ambassadors</div>
     </footer>
-
   </div>
 
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Twitch Player
-    new Twitch.Embed("twitch-embed", {
-      width: "100%",
-      height: "100%",
-      channel: "chaotryx",
-      layout: "video",
-      autoplay: true,
-      parent: ["www.chaotryx.at", "chaotryx.at", "localhost"]
-    });
-
-    // Live Status (Heuristik)
-    const statusEl = document.getElementById("live-status");
-    const dot = statusEl.querySelector(".status-dot");
-    const text = statusEl.querySelector("span");
-
-    window.addEventListener("message", (event) => {
-      if (typeof event.data === "string" && event.data.includes("PLAYING")) {
-        statusEl.classList.add("live");
-        text.textContent = "Status: Live";
+    // Partikel-Hintergrund
+    particlesJS("particles", {
+      particles: {
+        number: { value: 60 },
+        color: { value: "#ff1a3c" },
+        size: { value: 2 },
+        move: { speed: 1 },
+        line_linked: { enable: false }
+      },
+      interactivity: {
+        events: {
+          onhover: { enable: true, mode: "repulse" }
+        }
       }
     });
-  </script>
 
+    // Follower Counter (ohne Token, über decapi)
+    fetch("https://decapi.me/twitch/followers/chaotryx")
+      .then(r => r.text())
+      .then(count => {
+        document.getElementById("follower-count").textContent = count;
+      })
+      .catch(() => {
+        document.getElementById("follower-count").textContent = "–";
+      });
+
+    // Live Status (ohne Token, über decapi)
+    fetch("https://decapi.me/twitch/uptime/chaotryx")
+      .then(r => r.text())
+      .then(text => {
+        const liveText = document.getElementById("live-status-text");
+        const pill = document.getElementById("live-pill");
+        const pillText = document.getElementById("live-pill-text");
+
+        if (text.toLowerCase().includes("offline")) {
+          liveText.textContent = "Offline";
+          pillText.textContent = "Status: Offline";
+        } else {
+          liveText.textContent = "Live";
+          pillText.textContent = "Status: Live";
+          pill.classList.add("live");
+        }
+      })
+      .catch(() => {
+        document.getElementById("live-status-text").textContent = "Unbekannt";
+      });
+  </script>
 </body>
 </html>
