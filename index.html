@@ -80,6 +80,7 @@
       text-transform: uppercase;
       color: var(--red);
       text-shadow: var(--shadow-red);
+      animation: glitch 2s infinite;
     }
 
     .brand-tagline {
@@ -139,26 +140,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: brightness(0.75);
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, transparent, rgba(0,0,0,0.7));
-    }
-
-    .hero-text {
-      position: absolute;
-      bottom: 20px;
-      left: 30px;
-      font-family: 'Orbitron';
-      font-size: 2rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--red);
-      text-shadow: var(--shadow-red);
-      animation: glitch 2s infinite;
+      filter: none;
     }
 
     /* GLITCH */
@@ -170,42 +152,6 @@
       60% { transform: translate(-1px, 1px); }
       80% { transform: translate(1px, -1px); }
       100% { transform: translate(0); }
-    }
-
-    /* CROWN LINE */
-
-    .crown-line {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-
-    .crown-line::before,
-    .crown-line::after {
-      content: "";
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--red), transparent);
-      animation: crown-glow 3s ease-in-out infinite;
-    }
-
-    .crown-icon {
-      font-size: 1.2rem;
-      color: var(--red);
-      text-shadow: var(--shadow-red);
-      animation: crown-bounce 1.8s infinite;
-    }
-
-    @keyframes crown-glow {
-      0%,100% { opacity: 0.4; }
-      50% { opacity: 1; }
-    }
-
-    @keyframes crown-bounce {
-      0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-3px); }
     }
 
     /* CARD */
@@ -229,81 +175,31 @@
 
     /* ABOUT */
 
+    .about-layout {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .about-img {
+      width: 140px;
+      height: 140px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 2px solid var(--red);
+      box-shadow: var(--shadow-red);
+    }
+
+    .about-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     .about-text {
       color: var(--gray);
       font-size: 1.1rem;
       line-height: 1.6;
-    }
-
-    /* GAME PANEL */
-
-    .game-panel {
-      background: #0b0b10;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 16px;
-      margin-bottom: 20px;
-    }
-
-    .game-title {
-      font-family: 'Orbitron';
-      color: var(--red);
-      text-transform: uppercase;
-      margin-bottom: 10px;
-      letter-spacing: 0.15em;
-      font-size: 0.9rem;
-    }
-
-    .game-panel ul {
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
-      color: var(--gray);
-    }
-
-    .game-panel li::before {
-      content: "▶ ";
-      color: var(--red);
-    }
-
-    /* SCHEDULE PANEL */
-
-    .schedule-panel {
-      background: #0b0b10;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 16px;
-      margin-bottom: 20px;
-    }
-
-    .schedule-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      color: var(--gray);
-      font-size: 0.95rem;
-    }
-
-    .schedule-list li {
-      display: flex;
-      justify-content: space-between;
-      padding: 6px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.04);
-    }
-
-    .schedule-list li:last-child {
-      border-bottom: none;
-    }
-
-    .schedule-day {
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--white);
-      font-size: 0.8rem;
-    }
-
-    .schedule-time {
-      color: var(--gray);
     }
 
     /* SOCIALS */
@@ -387,11 +283,80 @@
       100% { clip-path: inset(80% 0 0 0); }
     }
 
-    .social-link:hover {
-      border-color: var(--red);
+    /* GAME PANEL */
+
+    .game-panel {
+      background: #0b0b10;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+
+    .game-title {
+      font-family: 'Orbitron';
       color: var(--red);
-      box-shadow: var(--shadow-red);
-      transform: translateY(-1px);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      letter-spacing: 0.15em;
+      font-size: 0.9rem;
+    }
+
+    .game-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .game-box {
+      background: #0a0a0f;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      text-align: center;
+      padding-bottom: 10px;
+    }
+
+    .game-box img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+    }
+
+    .game-box span {
+      display: block;
+      margin-top: 6px;
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    /* SCHEDULE */
+
+    .schedule-panel {
+      background: #0b0b10;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px;
+      margin-bottom: 20px;
+    }
+
+    .schedule-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    .schedule-list li {
+      display: flex;
+      justify-content: space-between;
+      padding: 4px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .schedule-list li:last-child {
+      border-bottom: none;
     }
 
     /* LIVE TICKER */
@@ -434,8 +399,9 @@
 
     @media (max-width: 600px) {
       .hero { height: 260px; }
-      .hero-text { font-size: 1.4rem; left: 20px; }
       header { flex-direction: column; gap: 10px; text-align: center; }
+      .about-layout { flex-direction: column; text-align: center; }
+      .game-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -468,22 +434,23 @@
     <!-- HERO BANNER -->
     <div class="hero">
       <img src="images/banner.png" alt="Hero Banner">
-      <div class="hero-overlay"></div>
-      <div class="hero-text">CHAOTRYX</div>
-    </div>
-
-    <div class="crown-line">
-      <span class="crown-icon">👑</span>
     </div>
 
     <!-- ABOUT -->
     <section class="card">
       <div class="card-title">Über mich</div>
-      <div class="about-text">
-        Gaming ohne Filter. Zu laut. Zu ehrlich.<br>
-        Willkommen im Chaos – willkommen bei CHAOTRYX.<br><br>
-        Wenn du Action, Humor und ungeschnittene Reaktionen liebst,  
-        dann bist du hier genau richtig.
+
+      <div class="about-layout">
+        <div class="about-img">
+          <img src="images/profile.jpg" alt="Profilbild">
+        </div>
+
+        <div class="about-text">
+          Gaming ohne Filter. Zu laut. Zu ehrlich.<br>
+          Willkommen im Chaos – willkommen bei CHAOTRYX.<br><br>
+          Wenn du Action, Humor und ungeschnittene Reaktionen liebst,  
+          dann bist du hier genau richtig.
+        </div>
       </div>
 
       <div class="socials">
@@ -491,17 +458,10 @@
           <span class="social-icon"></span>
           <span>Twitch</span>
         </a>
+
         <a class="social-link btn-glitch" href="https://www.tiktok.com/@chaotryx" target="_blank" data-text="TikTok">
           <span class="social-icon"></span>
           <span>TikTok</span>
-        </a>
-        <a class="social-link btn-glitch" href="https://www.youtube.com/@chaotryx" target="_blank" data-text="YouTube">
-          <span class="social-icon"></span>
-          <span>YouTube</span>
-        </a>
-        <a class="social-link btn-glitch" href="https://www.instagram.com/chaotryx" target="_blank" data-text="Instagram">
-          <span class="social-icon"></span>
-          <span>Instagram</span>
         </a>
       </div>
     </section>
@@ -509,32 +469,30 @@
     <!-- GAMES -->
     <div class="game-panel">
       <div class="game-title">Aktuelle Games</div>
-      <ul>
-        <li>ARC Raiders</li>
-        <li>Diablo IV</li>
-      </ul>
+
+      <div class="game-grid">
+
+        <div class="game-box">
+          <img src="images/arcraiders.jpg" alt="ARC Raiders">
+          <span>ARC Raiders</span>
+        </div>
+
+        <div class="game-box">
+          <img src="images/diablo4.jpg" alt="Diablo IV">
+          <span>Diablo IV</span>
+        </div>
+
+      </div>
     </div>
 
     <!-- SCHEDULE -->
     <div class="schedule-panel">
       <div class="game-title">Stream Schedule</div>
       <ul class="schedule-list">
-        <li>
-          <span class="schedule-day">Montag</span>
-          <span class="schedule-time">Off</span>
-        </li>
-        <li>
-          <span class="schedule-day">Dienstag</span>
-          <span class="schedule-time">20:00 – Open End</span>
-        </li>
-        <li>
-          <span class="schedule-day">Donnerstag</span>
-          <span class="schedule-time">20:00 – Open End</span>
-        </li>
-        <li>
-          <span class="schedule-day">Samstag</span>
-          <span class="schedule-time">Spontan</span>
-        </li>
+        <li><span>Montag</span><span>Off</span></li>
+        <li><span>Dienstag</span><span>20:00 – Open End</span></li>
+        <li><span>Donnerstag</span><span>20:00 – Open End</span></li>
+        <li><span>Samstag</span><span>Spontan</span></li>
       </ul>
     </div>
 
@@ -588,8 +546,7 @@
         }
       })
       .catch(() => {
-        const liveText = document.getElementById("live-status-text");
-        liveText.textContent = "Unbekannt";
+        document.getElementById("live-status-text").textContent = "Unbekannt";
       });
   </script>
 
