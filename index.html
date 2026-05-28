@@ -5,7 +5,6 @@
   <title>CHAOTRYX – Twitch Gaming Streamer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@300;400;700&display=swap" rel="stylesheet">
 
   <style>
@@ -41,7 +40,15 @@
       z-index: 1;
     }
 
-    /* HEADER */
+    /* Partikel-Layer fix – kein Abstand */
+    #particles {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      margin: 0;
+      padding: 0;
+    }
 
     header {
       display: flex;
@@ -123,8 +130,6 @@
       100% { transform: scale(1); }
     }
 
-    /* HERO BANNER */
-
     .hero {
       width: 100%;
       border-radius: 18px;
@@ -141,8 +146,6 @@
       display: block;
     }
 
-    /* GLITCH */
-
     @keyframes glitch {
       0% { transform: translate(0); }
       20% { transform: translate(-2px, 2px); }
@@ -151,8 +154,6 @@
       80% { transform: translate(1px, -1px); }
       100% { transform: translate(0); }
     }
-
-    /* CARD */
 
     .card {
       background: linear-gradient(135deg, #0b0b10, #050507);
@@ -170,8 +171,6 @@
       color: var(--red);
       margin-bottom: 12px;
     }
-
-    /* ABOUT */
 
     .about-layout {
       display: flex;
@@ -199,8 +198,6 @@
       font-size: 1.1rem;
       line-height: 1.6;
     }
-
-    /* SOCIALS */
 
     .socials {
       display: flex;
@@ -242,8 +239,6 @@
       box-shadow: 0 0 18px rgba(255, 26, 60, 1);
     }
 
-    /* GLITCH HOVER FOR BUTTONS */
-
     .btn-glitch {
       position: relative;
     }
@@ -256,7 +251,6 @@
       top: 0;
       width: 100%;
       opacity: 0;
-      clip-path: inset(0 0 0 0);
     }
 
     .btn-glitch::before {
@@ -280,8 +274,6 @@
       50% { clip-path: inset(40% 0 40% 0); }
       100% { clip-path: inset(80% 0 0 0); }
     }
-
-    /* GAME PANEL */
 
     .game-panel {
       background: #0b0b10;
@@ -329,8 +321,6 @@
       font-size: 0.9rem;
     }
 
-    /* SCHEDULE */
-
     .schedule-panel {
       background: #0b0b10;
       border: 1px solid var(--border);
@@ -358,8 +348,6 @@
       border-bottom: none;
     }
 
-    /* LIVE TICKER */
-
     .live-ticker {
       width: 100%;
       overflow: hidden;
@@ -385,8 +373,6 @@
       100% { transform: translateX(-100%); }
     }
 
-    /* FOOTER */
-
     footer {
       margin-top: 40px;
       padding-top: 20px;
@@ -403,8 +389,6 @@
       color: var(--red);
       text-decoration: none;
     }
-
-    /* COOKIE BANNER */
 
     #cookie-banner {
       position: fixed;
@@ -463,12 +447,10 @@
 
 <body>
 
-  <!-- Partikel-Hintergrund -->
   <div id="particles"></div>
 
   <div class="page">
 
-    <!-- HEADER -->
     <header>
       <div class="brand">
         <div class="brand-logo">
@@ -486,12 +468,10 @@
       </div>
     </header>
 
-    <!-- HERO BANNER -->
     <div class="hero">
       <img src="images/banner.png" alt="Hero Banner">
     </div>
 
-    <!-- ABOUT -->
     <section class="card">
       <div class="card-title">Über mich</div>
 
@@ -521,12 +501,10 @@
       </div>
     </section>
 
-    <!-- GAMES -->
     <div class="game-panel">
       <div class="game-title">Aktuelle Games</div>
 
       <div class="game-grid">
-
         <div class="game-box">
           <img src="images/arcraiders.jpg" alt="ARC Raiders">
           <span>ARC Raiders</span>
@@ -536,11 +514,9 @@
           <img src="images/diablo4.jpg" alt="Diablo IV">
           <span>Diablo IV</span>
         </div>
-
       </div>
     </div>
 
-    <!-- SCHEDULE -->
     <div class="schedule-panel">
       <div class="game-title">Stream Schedule</div>
       <ul class="schedule-list">
@@ -551,13 +527,12 @@
       </ul>
     </div>
 
-    <!-- LIVE TICKER -->
     <div class="live-ticker">
       <span>CHAOTRYX – GAMING OHNE FILTER – ZU LAUT. ZU EHRLICH. – FOLLOW AUF TWITCH – CHAOTRYX –</span>
     </div>
 
     <footer>
-      <div>© <span id="year"></span> CHAOTRYX / HRX CreatorNET Head of Ambassadors</div>
+      <div>© <span id="year"></span> CHAOTRYX</div>
       <div>
         <a href="impressum.html">Impressum</a> • 
         <a href="datenschutz.html">Datenschutz</a>
@@ -566,7 +541,6 @@
 
   </div>
 
-  <!-- COOKIE BANNER -->
   <div id="cookie-banner">
     <div id="cookie-banner-inner">
       <p>
@@ -579,13 +553,10 @@
     </div>
   </div>
 
-  <!-- Particles.js -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
   <script>
-    // Jahr im Footer
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Partikel-Hintergrund
     particlesJS("particles", {
       particles: {
         number: { value: 60 },
@@ -601,13 +572,11 @@
       }
     });
 
-    // Live-Status via IVR
     fetch("https://api.ivr.fi/v2/twitch/streams/chaotryx")
       .then(r => r.json())
       .then(stream => {
         const pill = document.getElementById("live-pill");
         const pillText = document.getElementById("live-pill-text");
-
         if (stream && stream.live === true) {
           pillText.textContent = "Status: Live";
           pill.classList.add("live");
@@ -621,7 +590,6 @@
         pillText.textContent = "Status: Unbekannt";
       });
 
-    // Cookie-Banner
     (function () {
       const banner = document.getElementById('cookie-banner');
       const acceptBtn = document.getElementById('cookie-accept');
