@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Datenschutzerklärung – CHAOTRYX</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #050507;
+      color: #f5f5f5;
+    }
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1, h2, h3 {
+      color: #ff1a3c;
+      font-weight: 700;
+    }
+    a { color: #ff1a3c; }
+    p { line-height: 1.6; }
+    ul { line-height: 1.6; }
+    hr {
+      border: 0;
+      border-top: 1px solid #333;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1>Datenschutzerklärung</h1>
+
+    <p>
+      Der Schutz deiner persönlichen Daten ist mir ein besonderes Anliegen. Ich verarbeite deine
+      Daten ausschließlich auf Grundlage der gesetzlichen Bestimmungen (DSGVO, TKG 2003).
+      In diesen Datenschutzinformationen informiere ich dich über die wichtigsten Aspekte der
+      Datenverarbeitung im Rahmen dieser Website und meiner Streaming-Aktivitäten.
+    </p>
+
+    <hr>
+
+    <h2>1. Verantwortlicher</h2>
+    <p>
+      <strong>Christoph Hameter</strong><br>
+      Neubergstrasse 65<br>
+      2100 Stetten<br>
+      Österreich<br>
+      E-Mail: christoph.hameter(at)gmx.at
+    </p>
+
+    <hr>
+
+    <h2>2. Erhebung und Speicherung personenbezogener Daten</h2>
+
+    <h3>2.1 Besuch der Website</h3>
+    <p>
+      Beim Besuch dieser Website werden automatisch bestimmte Informationen durch den
+      Webserver erfasst. Dazu gehören insbesondere:
+    </p>
+    <ul>
+      <li>IP-Adresse (ggf. in gekürzter/anonymisierter Form)</li>
+      <li>Browsertyp und Browserversion</li>
+      <li>verwendetes Betriebssystem</li>
+      <li>Referrer-URL (zuvor besuchte Seite)</li>
+      <li>Uhrzeit der Serveranfrage</li>
+    </ul>
+    <p>
+      Diese Daten werden aus technischen Gründen erhoben, um die Stabilität und Sicherheit
+      der Website zu gewährleisten. Eine personenbezogene Auswertung findet nicht statt.
+    </p>
+
+    <hr>
+
+    <h2>3. Cookies</h2>
+    <p>
+      Diese Website verwendet ausschließlich technisch notwendige Cookies, die für den Betrieb
+      der Seite erforderlich sind (z. B. zur Darstellung von Inhalten oder zur Speicherung
+      deiner Cookie-Einstellungen).
+    </p>
+    <p>
+      Es werden keine Tracking-Cookies, keine Werbe-Cookies und keine Analyse-Tools eingesetzt,
+      die dein Nutzungsverhalten zu Marketingzwecken auswerten.
+    </p>
+
+    <hr>
+
+    <h2>4. Twitch-Integration und Streaming</h2>
+    <p>
+      Als Gaming-Streamer nutze ich die Plattform Twitch (Twitch Interactive, Inc.), um
+      Livestreams und Inhalte bereitzustellen. Wenn du meinen Twitch-Kanal besuchst,
+      meinen Stream ansiehst oder mit mir interagierst (z. B. im Chat, durch Follows,
+      Subs oder andere Aktionen), werden Daten direkt durch Twitch verarbeitet.
+    </p>
+    <p>
+      Zu den von Twitch verarbeiteten Daten können insbesondere gehören:
+    </p>
+    <ul>
+      <li>IP-Adresse</li>
+      <li>Geräte- und Browserinformationen</li>
+      <li>Nutzungsdaten (z. B. Chat-Nachrichten, Follows, Interaktionen)</li>
+      <li>Twitch-Account-Daten (falls du eingeloggt bist)</li>
+    </ul>
+    <p>
+      Die Datenverarbeitung erfolgt gemäß den Datenschutzbestimmungen von Twitch:
+      <br>
+      <a href="https://www.twitch.tv/p/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">
+        https://www.twitch.tv/p/legal/privacy-policy/
+      </a>
+    </p>
+    <p>
+      Ich selbst erhalte über Twitch in der Regel nur pseudonymisierte Informationen
+      (z. B. deinen Nutzernamen, Chat-Nachrichten oder Follows), die ich ausschließlich
+      zur Interaktion im Stream und zur Community-Verwaltung nutze.
+    </p>
+
+    <hr>
+
+    <h2>5. Social-Media-Links</h2>
+    <p>
+      Auf dieser Website sind Links zu externen Plattformen (z. B. Twitch, TikTok) eingebunden.
+      Beim Anklicken eines solchen Links verlässt du diese Website und es gelten die
+      Datenschutzbestimmungen der jeweiligen Plattform.
+    </p>
+    <p>
+      Ich selbst speichere im Rahmen der bloßen Verlinkung keine personenbezogenen Daten.
+    </p>
+
+    <hr>
+
+    <h2>6. Kontaktaufnahme</h2>
+    <p>
+      Wenn du mich per E-Mail kontaktierst, werden die von dir angegebenen Daten
+      (z. B. Name, E-Mail-Adresse, Inhalt der Nachricht) zur Bearbeitung der Anfrage
+      und für den Fall von Anschlussfragen gespeichert.
+    </p>
+    <p>
+      Diese Daten werden ohne deine Einwilligung nicht an Dritte weitergegeben.
+    </p>
+
+    <hr>
+
+    <h2>7. Rechtsgrundlagen der Verarbeitung</h2>
+    <p>
+      Die Verarbeitung deiner Daten erfolgt auf Basis folgender Rechtsgrundlagen
+      gemäß Art. 6 DSGVO:
+    </p>
+    <ul>
+      <li>Art. 6 Abs. 1 lit. b DSGVO – Vertragserfüllung oder vorvertragliche Maßnahmen</li>
+      <li>Art. 6 Abs. 1 lit. f DSGVO – berechtigtes Interesse (z. B. Betrieb und Sicherheit der Website)</li>
+      <li>Art. 6 Abs. 1 lit. a DSGVO – Einwilligung (sofern du diese ausdrücklich erteilst)</li>
+    </ul>
+
+    <hr>
+
+    <h2>8. Speicherdauer</h2>
+    <p>
+      Personenbezogene Daten werden nur so lange gespeichert, wie dies für die jeweiligen
+      Zwecke erforderlich ist oder wie es gesetzliche Aufbewahrungsfristen vorsehen.
+      Danach werden die Daten gelöscht oder anonymisiert.
+    </p>
+
+    <hr>
+
+    <h2>9. Deine Rechte (Betroffenenrechte)</h2>
+    <p>Du hast jederzeit das Recht auf:</p>
+    <ul>
+      <li>Auskunft über die zu deiner Person gespeicherten Daten</li>
+      <li>Berichtigung unrichtiger Daten</li>
+      <li>Löschung deiner Daten, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen</li>
+      <li>Einschränkung der Verarbeitung</li>
+      <li>Datenübertragbarkeit</li>
+      <li>Widerspruch gegen die Verarbeitung, insbesondere bei Verarbeitung auf Basis berechtigter Interessen</li>
+      <li>Widerruf erteilter Einwilligungen mit Wirkung für die Zukunft</li>
+    </ul>
+    <p>
+      Wenn du glaubst, dass die Verarbeitung deiner Daten gegen das Datenschutzrecht verstößt
+      oder deine datenschutzrechtlichen Ansprüche sonst in einer Weise verletzt worden sind,
+      kannst du dich bei der zuständigen Aufsichtsbehörde beschweren. In Österreich ist dies
+      die Datenschutzbehörde.
+    </p>
+
+    <hr>
+
+    <h2>10. Sicherheit</h2>
+    <p>
+      Ich treffe angemessene technische und organisatorische Maßnahmen, um deine Daten vor
+      Verlust, Missbrauch oder unbefugtem Zugriff zu schützen.
+    </p>
+
+    <hr>
+
+    <h2>11. Änderungen dieser Datenschutzerklärung</h2>
+    <p>
+      Diese Datenschutzerklärung kann bei Bedarf angepasst werden, um rechtliche Änderungen
+      oder neue Funktionen dieser Website bzw. meiner Streaming-Aktivitäten zu berücksichtigen.
+      Es gilt jeweils die auf dieser Seite veröffentlichte aktuelle Version.
+    </p>
+  </div>
+</body>
+</html>
