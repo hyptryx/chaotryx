@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Impressum – CHAOTRYX</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #050507;
+      color: #f5f5f5;
+    }
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1, h2, h3 {
+      color: #ff1a3c;
+      font-weight: 700;
+    }
+    a { color: #ff1a3c; }
+    p { line-height: 1.6; }
+    hr {
+      border: 0;
+      border-top: 1px solid #333;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1>Impressum</h1>
+
+    <h2>Verantwortlich nach ECG / MedienG</h2>
+    <p>
+      <strong>Christoph Hameter</strong><br>
+      Neubergstrasse 65<br>
+      2100 Stetten<br>
+      Österreich
+    </p>
+    <p>
+      E-Mail: christoph.hameter(at)gmx.at<br>
+      Telefon: +43 664 2567563
+    </p>
+
+    <hr>
+
+    <h2>Unternehmensgegenstand</h2>
+    <p>Streaming / Online-Content-Erstellung</p>
+
+    <h2>Grundlegende Richtung des Mediums</h2>
+    <p>Unterhaltung und Livestreaming-Inhalte</p>
+
+    <hr>
+
+    <h2>Haftungsausschluss</h2>
+    <p>
+      Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit,
+      Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.
+      Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten
+      nach den allgemeinen Gesetzen verantwortlich.
+    </p>
+    <p>
+      Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen
+      Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen.
+      Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der
+      Seiten verantwortlich.
+    </p>
+
+    <hr>
+
+    <h2>Urheberrecht</h2>
+    <p>
+      Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen
+      dem österreichischem Urheberrecht. Medieninhaber und Urheber ist
+      <strong>Christoph Hameter</strong>. Beiträge Dritter sind als solche gekennzeichnet.
+      Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der
+      Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors
+      bzw. Erstellers.
+    </p>
+  </div>
+</body>
+</html>
