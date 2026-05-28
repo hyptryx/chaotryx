@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <title>CHAOTRYX – Twitch Streamer</title>
+  <title>CHAOTRYX – Twitch Gaming Streamer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Fonts -->
@@ -123,7 +123,7 @@
       100% { transform: scale(1); }
     }
 
-    /* HERO BANNER – FIXED FULL HEIGHT */
+    /* HERO BANNER */
 
     .hero {
       width: 100%;
@@ -385,21 +385,78 @@
       100% { transform: translateX(-100%); }
     }
 
-    /* PARTICLES */
+    /* FOOTER */
 
-    #particles {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
+    footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      color: var(--gray);
+      font-size: 0.8rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
-    /* RESPONSIVE */
+    footer a {
+      color: var(--red);
+      text-decoration: none;
+    }
+
+    /* COOKIE BANNER */
+
+    #cookie-banner {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(5, 5, 7, 0.98);
+      color: #f5f5f5;
+      border-top: 1px solid #333;
+      padding: 14px 20px;
+      display: none;
+      z-index: 9999;
+      font-size: 0.9rem;
+    }
+
+    #cookie-banner-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    #cookie-buttons {
+      display: flex;
+      gap: 8px;
+    }
+
+    .cookie-btn {
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid #ff1a3c;
+      background: #0a0a0f;
+      color: #f5f5f5;
+      cursor: pointer;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .cookie-btn.primary {
+      background: #ff1a3c;
+      color: #050507;
+    }
 
     @media (max-width: 600px) {
       header { flex-direction: column; gap: 10px; text-align: center; }
       .about-layout { flex-direction: column; text-align: center; }
       .game-grid { grid-template-columns: 1fr; }
+      #cookie-banner-inner { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -500,17 +557,35 @@
     </div>
 
     <footer>
-      <div>© <span id="year"></span> CHAOTRYX</div>
-      <div>HRX CreatorNET Head of Ambassadors</div>
+      <div>© <span id="year"></span> CHAOTRYX / HRX CreatorNET Head of Ambassadors</div>
+      <div>
+        <a href="impressum.html">Impressum</a> • 
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
     </footer>
 
+  </div>
+
+  <!-- COOKIE BANNER -->
+  <div id="cookie-banner">
+    <div id="cookie-banner-inner">
+      <p>
+        Diese Website verwendet nur technisch notwendige Cookies, um den Betrieb der Seite sicherzustellen.
+        Weitere Informationen findest du in der <a href="datenschutz.html" style="color:#ff1a3c;">Datenschutzerklärung</a>.
+      </p>
+      <div id="cookie-buttons">
+        <button class="cookie-btn primary" id="cookie-accept">Verstanden</button>
+      </div>
+    </div>
   </div>
 
   <!-- Particles.js -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
   <script>
+    // Jahr im Footer
     document.getElementById("year").textContent = new Date().getFullYear();
 
+    // Partikel-Hintergrund
     particlesJS("particles", {
       particles: {
         number: { value: 60 },
@@ -526,26 +601,48 @@
       }
     });
 
-    // Live Status über IVR API
+    // Live-Status via IVR
     fetch("https://api.ivr.fi/v2/twitch/streams/chaotryx")
       .then(r => r.json())
       .then(stream => {
-        const liveText = document.getElementById("live-status-text");
         const pill = document.getElementById("live-pill");
         const pillText = document.getElementById("live-pill-text");
 
         if (stream && stream.live === true) {
-          liveText.textContent = "Live";
           pillText.textContent = "Status: Live";
           pill.classList.add("live");
         } else {
-          liveText.textContent = "Offline";
           pillText.textContent = "Status: Offline";
+          pill.classList.remove("live");
         }
       })
       .catch(() => {
-        document.getElementById("live-status-text").textContent = "Unbekannt";
+        const pillText = document.getElementById("live-pill-text");
+        pillText.textContent = "Status: Unbekannt";
       });
+
+    // Cookie-Banner
+    (function () {
+      const banner = document.getElementById('cookie-banner');
+      const acceptBtn = document.getElementById('cookie-accept');
+      const storageKey = 'cookieConsentChaotryx';
+
+      function showBanner() {
+        if (!localStorage.getItem(storageKey)) {
+          banner.style.display = 'block';
+        }
+      }
+
+      function acceptCookies() {
+        localStorage.setItem(storageKey, 'accepted');
+        banner.style.display = 'none';
+      }
+
+      if (banner && acceptBtn) {
+        showBanner();
+        acceptBtn.addEventListener('click', acceptCookies);
+      }
+    })();
   </script>
 
 </body>
