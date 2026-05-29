@@ -40,7 +40,6 @@
       z-index: 1;
     }
 
-    /* Partikel-Layer fix – kein Abstand */
     #particles {
       position: fixed;
       inset: 0;
@@ -373,6 +372,98 @@
       100% { transform: translateX(-100%); }
     }
 
+    /* Neue Sektionen: VOD, Clips, Timeline */
+
+    .vod-section iframe,
+    .clip-embed iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 12px;
+    }
+
+    .vod-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #000;
+      box-shadow: 0 0 24px rgba(255, 26, 60, 0.25);
+    }
+
+    .clips-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .clip-embed {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #000;
+    }
+
+    .clip-label {
+      margin-top: 6px;
+      font-size: 0.85rem;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 12px;
+      padding: 10px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: #0a0a0f;
+    }
+
+    .timeline-badge {
+      min-width: 70px;
+      text-align: center;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--red);
+      border-right: 1px solid rgba(255,255,255,0.06);
+      padding-right: 10px;
+    }
+
+    .timeline-content {
+      flex: 1;
+    }
+
+    .timeline-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .timeline-meta {
+      font-size: 0.8rem;
+      color: var(--gray);
+      margin-bottom: 4px;
+    }
+
+    .timeline-desc {
+      font-size: 0.85rem;
+      color: var(--gray);
+    }
+
     footer {
       margin-top: 40px;
       padding-top: 20px;
@@ -436,15 +527,30 @@
       color: #050507;
     }
 
+    @media (max-width: 900px) {
+      .clips-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
     @media (max-width: 600px) {
       header { flex-direction: column; gap: 10px; text-align: center; }
       .about-layout { flex-direction: column; text-align: center; }
       .game-grid { grid-template-columns: 1fr; }
       #cookie-banner-inner { flex-direction: column; align-items: flex-start; }
+      .clips-grid { grid-template-columns: 1fr; }
+      .timeline-item {
+        flex-direction: column;
+      }
+      .timeline-badge {
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+        padding-bottom: 6px;
+        margin-bottom: 4px;
+      }
     }
   </style>
 </head>
-
 <body>
 
   <div id="particles"></div>
@@ -498,6 +604,102 @@
           <span class="social-icon"></span>
           <span>TikTok</span>
         </a>
+      </div>
+    </section>
+
+    <!-- Twitch VOD-Card -->
+    <section class="card vod-section">
+      <div class="card-title">Letzter Stream / Live</div>
+      <div class="vod-wrapper">
+        <iframe
+          src="https://player.twitch.tv/?channel=chaotryx&parent=www.chaotryx.at&parent=chaotryx.at"
+          allowfullscreen="true"
+          scrolling="no">
+        </iframe>
+      </div>
+    </section>
+
+    <!-- Clips-Galerie -->
+    <section class="card">
+      <div class="card-title">Clips – Best of CHAOTRYX</div>
+      <div class="clips-grid">
+        <div>
+          <div class="clip-embed">
+            <iframe
+              src="https://clips.twitch.tv/embed?clip=MushyOptimisticStingrayPeanutButterJellyTime-FmiHrRlZ5iRaBp6N&parent=www.chaotryx.at&parent=chaotryx.at"
+              allowfullscreen="true"
+              scrolling="no">
+            </iframe>
+          </div>
+          <div class="clip-label">Clip 1 – Chaos Moment</div>
+        </div>
+
+        <div>
+          <div class="clip-embed">
+            <iframe
+              src="https://clips.twitch.tv/embed?clip=PoisedBoldAsparagusJonCarnage-8NJTH-yilQl86ujf&parent=www.chaotryx.at&parent=chaotryx.at"
+              allowfullscreen="true"
+              scrolling="no">
+            </iframe>
+          </div>
+          <div class="clip-label">Clip 2 – Clutch Play</div>
+        </div>
+
+        <div>
+          <div class="clip-embed">
+            <iframe
+              src="https://clips.twitch.tv/embed?clip=OnerousFlaccidKathyResidentSleeper-ncwwW_-bF-u2nCRw&parent=www.chaotryx.at&parent=chaotryx.at"
+              allowfullscreen="true"
+              scrolling="no">
+            </iframe>
+          </div>
+          <div class="clip-label">Clip 3 – Pure Chaos</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Let's Play Timeline -->
+    <section class="card">
+      <div class="card-title">Let’s Play Timeline</div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-badge">
+            Neueste<br>Session
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-title">ARC Raiders – Chaos im Orbit</div>
+            <div class="timeline-meta">Coop • High Action • Loot & Chaos</div>
+            <div class="timeline-desc">
+              Volle Eskalation mit der Crew – kein Plan, nur Feuergefechte, Drops und laute Reaktionen.
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-badge">
+            Diablo IV
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-title">Sanctuary im Hardmode</div>
+            <div class="timeline-meta">Grind • Builds testen • Bossfights</div>
+            <div class="timeline-desc">
+              Wenn Chaos auf Dämonen trifft: Builds werden live zerstört, Bosse auch – meistens.
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-badge">
+            Community
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-title">Community Nights</div>
+            <div class="timeline-meta">Random Games • Viewer Action</div>
+            <div class="timeline-desc">
+              Spontane Runden mit der Community – wer reinjoint, ist Teil des Chaos. Keine Skripte, nur echte Reaktionen.
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
