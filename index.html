@@ -284,6 +284,7 @@
       font-size: 0.9rem;
     }
 
+    /* Neon-Schedule */
     .schedule-panel {
       background: #0b0b10;
       border: 1px solid var(--border);
@@ -292,23 +293,41 @@
       margin-bottom: 20px;
     }
 
-    .schedule-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      color: var(--gray);
-      font-size: 0.9rem;
+    .neon-schedule .schedule-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
 
-    .schedule-list li {
+    .schedule-item {
       display: flex;
       justify-content: space-between;
-      padding: 3px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.04);
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: rgba(255, 26, 60, 0.05);
+      border: 1px solid rgba(255, 26, 60, 0.25);
+      backdrop-filter: blur(4px);
+      transition: 0.25s;
     }
 
-    .schedule-list li:last-child {
-      border-bottom: none;
+    .schedule-item:hover {
+      border-color: var(--red);
+      box-shadow: 0 0 12px rgba(255, 26, 60, 0.5);
+    }
+
+    .schedule-item .day {
+      font-family: 'Orbitron', sans-serif;
+      letter-spacing: 0.12em;
+      color: var(--white);
+    }
+
+    .schedule-item .time {
+      color: var(--gray);
+    }
+
+    .schedule-item .time.off {
+      color: #777;
+      opacity: 0.6;
     }
 
     .live-ticker {
@@ -546,12 +565,12 @@
       </div>
 
       <div class="socials">
-        <a class="social-link btn-glitch" href="https://www.twitch.tv/chaotryx" target="_blank" data-text="Twitch">
+        <a class="social-link btn-glitch" href="https://www.twitch.tv/chaotryx" target="_blank">
           <span class="social-icon"></span>
           <span>Twitch</span>
         </a>
 
-        <a class="social-link btn-glitch" href="https://www.tiktok.com/@chaotryx" target="_blank" data-text="TikTok">
+        <a class="social-link btn-glitch" href="https://www.tiktok.com/@chaotryx" target="_blank">
           <span class="social-icon"></span>
           <span>TikTok</span>
         </a>
@@ -658,14 +677,27 @@
       </div>
     </div>
 
-    <div class="schedule-panel">
+    <!-- Neon Stream Schedule -->
+    <div class="schedule-panel neon-schedule">
       <div class="game-title">Stream Schedule</div>
-      <ul class="schedule-list">
-        <li><span>Montag</span><span>Off</span></li>
-        <li><span>Dienstag</span><span>20:00 – Open End</span></li>
-        <li><span>Donnerstag</span><span>20:00 – Open End</span></li>
-        <li><span>Samstag</span><span>Spontan</span></li>
-      </ul>
+      <div class="schedule-grid">
+        <div class="schedule-item">
+          <span class="day">Montag</span>
+          <span class="time off">OFF</span>
+        </div>
+        <div class="schedule-item">
+          <span class="day">Dienstag</span>
+          <span class="time">20:00 – Open End</span>
+        </div>
+        <div class="schedule-item">
+          <span class="day">Donnerstag</span>
+          <span class="time">20:00 – Open End</span>
+        </div>
+        <div class="schedule-item">
+          <span class="day">Samstag</span>
+          <span class="time">Spontan</span>
+        </div>
+      </div>
     </div>
 
     <div class="live-ticker">
